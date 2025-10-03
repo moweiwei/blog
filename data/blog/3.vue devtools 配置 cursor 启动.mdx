@@ -1,0 +1,33 @@
+---
+title: 'vue devtools 配置cursor 启动'
+date: '2025-10-03'
+tags: ['vue devtools']
+---
+
+## code 命令
+
+终端 `code .` 默认启动 vscode；如何将其修改为 cursor？
+
+~/.zshrc 中添加如下配置
+
+```sh
+alias code="cursor"
+export LAUNCH_EDITOR=cursor
+```
+
+source ~/.zshrc 使其生效；
+
+
+## vue devtool 审查元素默认启动编辑器改为 cursor
+
+设置 LAUNCH_EDITOR 环境变量全局
+
+编辑 ~/.zshenv（比 ~/.zshrc 更早加载，适用于 GUI 应用）：
+
+```sh
+export LAUNCH_EDITOR="cursor"
+```
+
+登出 / 重启你的 macOS 用户会话，让 GUI 应用生效。
+
+注意：只改 ~/.zshrc 或 alias 对 GUI 应用不起作用，因为 GUI app 不会执行这些文件。
